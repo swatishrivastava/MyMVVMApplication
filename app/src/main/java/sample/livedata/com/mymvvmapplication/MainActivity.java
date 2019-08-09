@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,8 +23,10 @@ public class MainActivity extends AppCompatActivity {
         final Button button = findViewById(R.id.button);
 
 
-        final MyViewModel myViewModel = ViewModelProvider.AndroidViewModelFactory
-                .getInstance(getApplication()).create(MyViewModel.class);
+        final MyViewModel myViewModel =ViewModelProviders.of(this).get(MyViewModel.class);
+
+/*        final MyViewModel myViewModel = ViewModelProvider.AndroidViewModelFactory
+                .getInstance(getApplication()).create(MyViewModel.class);*/
 
         myViewModel.getMutableLiveData().observe(this, new Observer<PersonDto>() {
             @Override
