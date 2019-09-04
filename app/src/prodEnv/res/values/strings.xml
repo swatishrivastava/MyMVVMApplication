@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">My MVVM Sample</string>
-    <string name="greet">Hello Normal user!!</string>
+    <string name = "greet">Hello Prod user!!</string>
 </resources>

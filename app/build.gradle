@@ -12,9 +12,38 @@ android {
     }
     buildTypes {
         release {
+            applicationIdSuffix ".release"
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug{
+            applicationIdSuffix ".debug"
+        }
+        stage{
+            initWith debug
+            applicationIdSuffix ".stage"
+
+        }
+    }
+
+    flavorDimensions  "version",  "server"
+    productFlavors{
+        free{
+            dimension "version"
+            applicationIdSuffix ".free"
+        }
+        paid{
+            dimension "version"
+            applicationIdSuffix "paid"
+        }
+        prodEnv{
+            dimension "server"
+        }
+        demoEnv{
+            dimension "server"
+        }
+
+
     }
 }
 
