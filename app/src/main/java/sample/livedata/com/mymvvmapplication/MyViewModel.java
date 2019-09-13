@@ -1,11 +1,14 @@
 package sample.livedata.com.mymvvmapplication;
 
+import android.util.Log;
+
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class MyViewModel extends ViewModel {
 
-    private MutableLiveData<PersonDto> mutableLiveData;
+    private static final String TAG = "MyViewModel";
+    private final MutableLiveData<PersonDto> mutableLiveData;
 
     public MyViewModel() {
         this.mutableLiveData = new MutableLiveData<>();
@@ -15,7 +18,8 @@ public class MyViewModel extends ViewModel {
         return mutableLiveData;
     }
 
-    public void setMutableLiveData(PersonDto personDto) {
+    public void setMutableLiveData(final PersonDto personDto) {
+        Log.d(TAG, "setMutableLiveData: ");
         mutableLiveData.setValue(personDto);
     }
 

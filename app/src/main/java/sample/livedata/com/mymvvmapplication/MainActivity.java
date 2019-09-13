@@ -3,7 +3,6 @@ package sample.livedata.com.mymvvmapplication;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -13,12 +12,14 @@ public class MainActivity extends AppCompatActivity implements FirstFragment.onS
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        addFirstFragment();
+    }
+
+    private void addFirstFragment() {
         final FragmentManager fragmentManager = getSupportFragmentManager();
         final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.fragment_container, new FirstFragment());
         fragmentTransaction.commit();
-
-
     }
 
     @Override

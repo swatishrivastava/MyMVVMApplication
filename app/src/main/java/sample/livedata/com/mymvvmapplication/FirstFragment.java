@@ -1,7 +1,6 @@
 package sample.livedata.com.mymvvmapplication;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,26 +14,22 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class FirstFragment extends Fragment {
 
 
     private onSubmitButtonClick onSubmitButtonClick;
 
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        onSubmitButtonClick= (FirstFragment.onSubmitButtonClick) getActivity();
+        onSubmitButtonClick = (FirstFragment.onSubmitButtonClick) getActivity();
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View view=inflater.inflate(R.layout.first_frag_layout, container, false);
+        final View view = inflater.inflate(R.layout.first_frag_layout, container, false);
         final TextView textView = view.findViewById(R.id.greet_text);
         final EditText editText = view.findViewById(R.id.editText);
         final Button button = view.findViewById(R.id.button);
@@ -47,21 +42,6 @@ public class FirstFragment extends Fragment {
                 textView.setText("Hello " + personDto.getName() + " (" + personDto.getEmail() + ")");
             }
         });
-
-
-        List<String> list = new ArrayList<>();
-        list.add("Swati");
-
-        Log.e("Playing with collection",  ""+list.size());
-
-        for (String s: list){
-            if(s.equalsIgnoreCase("Swati")){
-                list.remove("Swati");
-            }
-        }
-
-
-        Log.e("Collection after for ",  ""+list.size());
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -79,11 +59,9 @@ public class FirstFragment extends Fragment {
 
     }
 
-    interface onSubmitButtonClick{
+    interface onSubmitButtonClick {
         void submitButtonClick();
     }
-
-
 
 
 }
